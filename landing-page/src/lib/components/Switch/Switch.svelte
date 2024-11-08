@@ -11,9 +11,9 @@
   let {options, getOptionValue, getOptionLabel, value = $bindable()}: SwitchProps = $props();
 </script>
 
-<div class="flex flex-row rounded bg-slate-100 w-fit overflow-hidden p-1">
+<div class="flex flex-row rounded bg-slate-100 w-fit overflow-hidden p-1 h-fit font-sans font-semibold">
   {#each options as option, i (i)}
-    <button class={clsx('flex py-1 px-3 rounded', getOptionValue(option) === value && 'bg-blue-600 text-white')} onclick={() => {
+    <button class={clsx('flex py-1 px-3 rounded', getOptionValue(option) === value ? 'bg-blue-600 text-white': 'font-normal')} onclick={() => {
       value = getOptionValue(option);
     }}>
       {getOptionLabel(option)}
