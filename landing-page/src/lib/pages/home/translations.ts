@@ -21,8 +21,8 @@ export const translations = {
         "ht-HT": "Vizyon Nou"
       } satisfies Translation,
       shortDescription: {
-        "en-US": "",
-        'ht-HT': ""
+        "en-US": "Starting a new project is fun and challenging. It takes planning and hard work. Sometimes, problems come up, but staying focused helps you succeed. Reaching the goal feels great, but learning along the way is special too.",
+        'ht-HT': "Kòmanse yon nouvo pwojè se amizan e difisil. Sa mande planifikasyon ak travay di. Pafwa, gen pwoblèm ki parèt, men rete konsantre ede ou reyisi. Rive nan objektif la bay anpil satisfaksyon, men aprann pandan w ap avanse enpòtan tou."
       } satisfies Translation,
       longDescription: {
         "en-US": `
@@ -62,8 +62,8 @@ export const translations = {
         "ht-HT": "Sa'l Ye"
       } satisfies Translation,
       shortDescription: {
-        "en-US": "",
-        "ht-HT": ""
+        "en-US": "Starting a new project is fun and challenging. It takes planning and hard work. Sometimes, problems come up, but staying focused helps you succeed. Reaching the goal feels great, but learning along the way is special too.",
+        "ht-HT": "Kòmanse yon nouvo pwojè se amizan e difisil. Sa mande planifikasyon ak travay di. Pafwa, gen pwoblèm ki parèt, men rete konsantre ede ou reyisi. Rive nan objektif la bay anpil satisfaksyon, men aprann pandan w ap avanse enpòtan tou."
       } satisfies Translation,
       longDescription: {
         "en-US":
@@ -119,8 +119,8 @@ export const translations = {
         "ht-HT": "Kolabore avèk Nou"
       } satisfies Translation,
       shortDescription: {
-        "en-US": "",
-        "ht-HT": ""
+        "en-US": "Starting a new project is fun and challenging. It takes planning and hard work. Sometimes, problems come up, but staying focused helps you succeed. Reaching the goal feels great, but learning along the way is special too.",
+        "ht-HT": "Kòmanse yon nouvo pwojè se amizan e difisil. Sa mande planifikasyon ak travay di. Pafwa, gen pwoblèm ki parèt, men rete konsantre ede ou reyisi. Rive nan objektif la bay anpil satisfaksyon, men aprann pandan w ap avanse enpòtan tou."
       } satisfies Translation,
       longDescription: {
         "en-US": `
