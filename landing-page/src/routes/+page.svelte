@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Switch from '$lib/components/Switch/Switch.svelte';
 	import { type LanguageCode } from '$lib/utils/translationType';
-	import { translations as homePageTranslations, translations } from '$lib/pages/home/translations';
+	import { translations as homePageTranslations } from '$lib/pages/home/translations';
 
 	type PageSection = keyof typeof homePageTranslations.sections;
 
@@ -32,8 +32,13 @@
 					expandedSection = id;
 				}
 			}}
-			>{homePageTranslations.readMore[selectedLanguage]}
-			<i class="fas fa-angles-right"></i></button
+			class="flex items-center gap-2"
+			>{#if expandedSection !== id}
+				{homePageTranslations.readMore[selectedLanguage]}
+				<i class="fas fa-angles-right"></i>
+			{:else}
+				{homePageTranslations.collapse[selectedLanguage]}<i class="fas fa-angles-up"></i>
+			{/if}</button
 		>
 		{#if expandedSection === id}
 			<div>
@@ -41,7 +46,7 @@
 					{@html longDescription}
 				</div>
 				<button
-					class="collapse-button"
+					class="flex items-center gap-2"
 					onclick={() => {
 						expandedSection = undefined;
 					}}
@@ -83,7 +88,7 @@
 	</div>
 	<!--Proposal-->
 	<div
-		class="rounded-lg bg-slate-100 p-2 [&_.header]:pb-3 [&_.header]:pt-1 [&_.header]:text-3xl [&_.header]:font-semibold"
+		class="rounded-lg bg-slate-100 p-2 [&_.header]:pb-3 [&_.header]:pt-1 [&_.header]:text-3xl [&_.header]:font-semibold [&_.long-description]:pt-4 [&_button]:mt-4 [&_button]:w-fit [&_button]:rounded-md [&_button]:bg-slate-300 [&_button]:px-4 [&_button]:py-2"
 	>
 		{@render expandingSection(
 			'intro',
