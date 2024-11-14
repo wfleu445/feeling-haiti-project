@@ -68,7 +68,7 @@
 {/snippet}
 
 <div
-	class="flex grow flex-col gap-3 overflow-auto font-serif text-[16pt] leading-relaxed text-slate-800 [&_.w-restricted]:max-w-[38em]"
+	class="flex grow flex-col gap-3 overflow-auto font-serif text-[16pt] leading-relaxed text-slate-800 [&_.w-restricted]:max-w-[45em]"
 >
 	<div class="flex p-2">
 		<Switch
@@ -80,7 +80,9 @@
 	</div>
 	<!--Hero-->
 	<div class="flex w-full justify-center p-3">
-		<div class="grid grid-flow-row-dense gap-2 md:grid-cols-2 md:px-10 lg:my-10">
+		<div
+			class="grid grid-flow-row-dense gap-2 md:grid-cols-2 md:px-10 lg:my-10 lg:w-[90%] lg:pb-10"
+		>
 			<div class="flex items-end md:col-start-1 md:col-end-1 md:row-start-1 md:row-end-1 md:px-10">
 				<span class="pb-2 font-sans text-5xl font-semibold text-gray-700">Filing Ayiti</span>
 			</div>
