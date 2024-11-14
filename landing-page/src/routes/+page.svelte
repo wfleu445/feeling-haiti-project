@@ -110,7 +110,7 @@
 	<!--Proposal-->
 	<div class="flex w-full justify-center px-3 pb-10 pt-3">
 		<div
-			class="w-restricted flex justify-center rounded-lg bg-blue-500 p-5 tracking-wide text-blue-50 [&_.header]:pb-3 [&_.header]:pt-1 [&_.header]:text-3xl [&_.header]:font-semibold [&_.long-description]:flex [&_.long-description]:gap-4 [&_.long-description]:pt-4 [&_.long-description]:leading-normal [&_button]:mt-4 [&_button]:w-fit [&_button]:rounded-md [&_button]:bg-blue-700 [&_button]:px-4 [&_button]:py-2"
+			class="w-restricted flex justify-center rounded-lg bg-blue-600 p-5 tracking-wide text-blue-50 [&_.header]:pb-3 [&_.header]:pt-1 [&_.header]:text-3xl [&_.header]:font-semibold [&_.long-description]:flex [&_.long-description]:gap-4 [&_.long-description]:pt-4 [&_.long-description]:leading-normal [&_button]:mt-4 [&_button]:w-fit [&_button]:rounded-md [&_button]:bg-blue-800 [&_button]:px-4 [&_button]:py-2"
 		>
 			{@render expandingSection(
 				'intro',
@@ -121,9 +121,9 @@
 		</div>
 	</div>
 	<!--Features Lookout-->
-	<div class="flex w-full justify-center bg-red-500 py-10 tracking-wide text-red-50">
+	<div class="flex w-full justify-center bg-red-500 py-10 tracking-wide text-white">
 		<div
-			class="w-restricted p-5 [&_.header]:pb-3 [&_.header]:pt-1 [&_.header]:text-3xl [&_.header]:font-semibold [&_.long-description]:pt-4 [&_button]:mt-4 [&_button]:w-fit [&_button]:rounded-md [&_button]:bg-red-700 [&_button]:px-4 [&_button]:py-2"
+			class="w-restricted &_.long-description]:flex p-5 [&_.header]:pb-3 [&_.header]:pt-1 [&_.header]:text-3xl [&_.header]:font-semibold [&_.long-description]:gap-4 [&_.long-description]:pt-4 [&_.long-description]:leading-normal [&_button]:mt-4 [&_button]:w-fit [&_button]:rounded-md [&_button]:bg-red-700 [&_button]:px-4 [&_button]:py-2"
 		>
 			{@render expandingSection(
 				'features',
@@ -136,7 +136,7 @@
 	<!--Call to action-->
 	<div class="flex w-full justify-center py-10">
 		<div
-			class="w-restricted px-5 [&_.header]:pb-3 [&_.header]:pt-1 [&_.header]:text-3xl [&_.header]:font-semibold [&_.long-description]:pt-4 [&_button]:mt-4 [&_button]:w-fit [&_button]:rounded-md [&_button]:bg-slate-300 [&_button]:px-4 [&_button]:py-2"
+			class="w-restricted &_.long-description]:flex px-5 [&_.header]:pb-3 [&_.header]:pt-1 [&_.header]:text-3xl [&_.header]:font-semibold [&_.long-description]:gap-4 [&_.long-description]:pt-4 [&_.long-description]:leading-normal [&_button]:mt-4 [&_button]:w-fit [&_button]:rounded-md [&_button]:bg-slate-300 [&_button]:px-4 [&_button]:py-2"
 		>
 			{@render expandingSection(
 				'cta',

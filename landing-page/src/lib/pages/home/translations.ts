@@ -148,7 +148,7 @@ export const translations = {
         Si w enterese pou kontribye, ou kapab:
         </p>
         <ul>
-        <li>Fork repozitwa sa a epi soumèt yon "pull request"/li>
+        <li>Fork repozitwa sa a epi soumèt yon "pull request"</li>
         <li>Kite yon sijesyon oswa yon lide nan seksyon pwoblèm yo</li>
         <li>Kontakte nou pou kolaborasyon</li>
         </ul>
