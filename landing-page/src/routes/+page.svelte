@@ -57,6 +57,16 @@
 	</div>
 {/snippet}
 
+{#snippet joinButton()}
+	<a
+		href="https://github.com/wfleu445/feeling-haiti-project/issues"
+		class="my-4 flex h-fit w-fit cursor-pointer flex-row items-center justify-center gap-4 rounded-lg bg-slate-800 px-4 py-2 font-sans font-semibold text-white"
+	>
+		{homePageTranslations.joinUs[selectedLanguage]}
+		<i class="fa-brands fa-github text-2xl"></i>
+	</a>
+{/snippet}
+
 <div
 	class="flex grow flex-col gap-3 overflow-auto font-serif text-[16pt] leading-relaxed text-slate-800 [&_.w-restricted]:max-w-[38em]"
 >
@@ -93,13 +103,7 @@
 			<div
 				class="flex items-start md:col-start-1 md:col-end-1 md:row-start-3 md:row-end-3 md:px-10"
 			>
-				<a
-					href="https://github.com/wfleu445/feeling-haiti-project/issues"
-					class="my-4 flex h-fit w-fit cursor-pointer flex-row items-center justify-center gap-4 rounded-lg bg-slate-800 px-4 py-2 font-sans font-semibold text-white"
-				>
-					{homePageTranslations.joinUs[selectedLanguage]}
-					<i class="fa-brands fa-github text-2xl"></i>
-				</a>
+				{@render joinButton()}
 			</div>
 		</div>
 	</div>
@@ -132,7 +136,7 @@
 	<!--Call to action-->
 	<div class="flex w-full justify-center py-10">
 		<div
-			class="w-restricted px-5 pb-5 [&_.header]:pb-3 [&_.header]:pt-1 [&_.header]:text-3xl [&_.header]:font-semibold [&_.long-description]:pt-4 [&_button]:mt-4 [&_button]:w-fit [&_button]:rounded-md [&_button]:bg-slate-300 [&_button]:px-4 [&_button]:py-2"
+			class="w-restricted px-5 [&_.header]:pb-3 [&_.header]:pt-1 [&_.header]:text-3xl [&_.header]:font-semibold [&_.long-description]:pt-4 [&_button]:mt-4 [&_button]:w-fit [&_button]:rounded-md [&_button]:bg-slate-300 [&_button]:px-4 [&_button]:py-2"
 		>
 			{@render expandingSection(
 				'cta',
@@ -140,6 +144,11 @@
 				homePageTranslations.sections.cta.shortDescription[selectedLanguage],
 				homePageTranslations.sections.cta.longDescription[selectedLanguage]
 			)}
+		</div>
+	</div>
+	<div class="flex w-full justify-center">
+		<div class="w-restricted w-full px-5">
+			<div class="flex w-full">{@render joinButton()}</div>
 		</div>
 	</div>
 </div>
