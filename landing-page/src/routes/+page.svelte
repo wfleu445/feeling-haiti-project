@@ -58,61 +58,75 @@
 {/snippet}
 
 <div
-	class="flex grow flex-col gap-3 overflow-auto p-3 font-serif text-[16pt] leading-relaxed text-slate-800"
+	class="flex grow flex-col gap-3 overflow-auto font-serif text-[16pt] leading-relaxed text-slate-800 [&_.w-restricted]:max-w-[38em]"
 >
-	<Switch
-		options={languageOptions}
-		getOptionValue={(option) => option.code}
-		getOptionLabel={(option) => option.displayName}
-		bind:value={selectedLanguage}
-	/>
-	<!--Hero-->
-	<div class="grid grid-flow-row-dense gap-2">
-		<span class="pb-2 font-sans text-5xl font-semibold text-gray-700">Filing Ayiti</span>
-		<enhanced:img
-			src="/static/hero.jpg"
-			alt="a group of people smiling"
-			class="rounded-lg shadow-md"
+	<div class="flex p-2">
+		<Switch
+			options={languageOptions}
+			getOptionValue={(option) => option.code}
+			getOptionLabel={(option) => option.displayName}
+			bind:value={selectedLanguage}
 		/>
-		<p class="pt-3">
-			{homePageTranslations.hero[selectedLanguage]}
-		</p>
+	</div>
+	<!--Hero-->
+	<div class="flex w-full justify-center p-3">
+		<div class="w-restricted grid grid-flow-row-dense gap-2">
+			<span class="pb-2 font-sans text-5xl font-semibold text-gray-700">Filing Ayiti</span>
+			<enhanced:img
+				src="/static/hero.jpg"
+				alt="a group of people smiling"
+				class="rounded-lg shadow-md"
+			/>
+			<p class="pt-3">
+				{homePageTranslations.hero[selectedLanguage]}
+			</p>
 
-		<a
-			href="https://github.com/wfleu445/feeling-haiti-project/issues"
-			class="my-4 flex w-fit cursor-pointer flex-row items-center justify-center gap-4 rounded-lg bg-slate-800 px-4 py-2 font-sans font-semibold text-white"
-		>
-			{homePageTranslations.joinUs[selectedLanguage]}
-			<i class="fa-brands fa-github text-2xl"></i>
-		</a>
+			<a
+				href="https://github.com/wfleu445/feeling-haiti-project/issues"
+				class="my-4 flex w-fit cursor-pointer flex-row items-center justify-center gap-4 rounded-lg bg-slate-800 px-4 py-2 font-sans font-semibold text-white"
+			>
+				{homePageTranslations.joinUs[selectedLanguage]}
+				<i class="fa-brands fa-github text-2xl"></i>
+			</a>
+		</div>
 	</div>
 	<!--Proposal-->
-	<div
-		class="rounded-lg bg-slate-100 p-2 [&_.header]:pb-3 [&_.header]:pt-1 [&_.header]:text-3xl [&_.header]:font-semibold [&_.long-description]:pt-4 [&_button]:mt-4 [&_button]:w-fit [&_button]:rounded-md [&_button]:bg-slate-300 [&_button]:px-4 [&_button]:py-2"
-	>
-		{@render expandingSection(
-			'intro',
-			homePageTranslations.sections.intro.title[selectedLanguage],
-			homePageTranslations.sections.intro.shortDescription[selectedLanguage],
-			homePageTranslations.sections.intro.longDescription[selectedLanguage]
-		)}
+	<div class="flex w-full justify-center px-3 py-10">
+		<div
+			class="w-restricted flex justify-center rounded-lg bg-blue-400 p-5 [&_.header]:pb-3 [&_.header]:pt-1 [&_.header]:text-3xl [&_.header]:font-semibold [&_.long-description]:pt-4 [&_button]:mt-4 [&_button]:w-fit [&_button]:rounded-md [&_button]:bg-slate-300 [&_button]:px-4 [&_button]:py-2"
+		>
+			{@render expandingSection(
+				'intro',
+				homePageTranslations.sections.intro.title[selectedLanguage],
+				homePageTranslations.sections.intro.shortDescription[selectedLanguage],
+				homePageTranslations.sections.intro.longDescription[selectedLanguage]
+			)}
+		</div>
 	</div>
 	<!--Features Lookout-->
-	<div>
-		{@render expandingSection(
-			'features',
-			homePageTranslations.sections.features.title[selectedLanguage],
-			homePageTranslations.sections.features.shortDescription[selectedLanguage],
-			homePageTranslations.sections.features.longDescription[selectedLanguage]
-		)}
+	<div class="flex w-full justify-center bg-red-400 py-10">
+		<div
+			class="w-restricted p-5 [&_.header]:pb-3 [&_.header]:pt-1 [&_.header]:text-3xl [&_.header]:font-semibold [&_.long-description]:pt-4 [&_button]:mt-4 [&_button]:w-fit [&_button]:rounded-md [&_button]:bg-slate-300 [&_button]:px-4 [&_button]:py-2"
+		>
+			{@render expandingSection(
+				'features',
+				homePageTranslations.sections.features.title[selectedLanguage],
+				homePageTranslations.sections.features.shortDescription[selectedLanguage],
+				homePageTranslations.sections.features.longDescription[selectedLanguage]
+			)}
+		</div>
 	</div>
 	<!--Call to action-->
-	<div>
-		{@render expandingSection(
-			'features',
-			homePageTranslations.sections.cta.title[selectedLanguage],
-			homePageTranslations.sections.cta.shortDescription[selectedLanguage],
-			homePageTranslations.sections.cta.longDescription[selectedLanguage]
-		)}
+	<div class="flex w-full justify-center py-10">
+		<div
+			class="w-restricted px-5 pb-5 [&_.header]:pb-3 [&_.header]:pt-1 [&_.header]:text-3xl [&_.header]:font-semibold [&_.long-description]:pt-4 [&_button]:mt-4 [&_button]:w-fit [&_button]:rounded-md [&_button]:bg-slate-300 [&_button]:px-4 [&_button]:py-2"
+		>
+			{@render expandingSection(
+				'cta',
+				homePageTranslations.sections.cta.title[selectedLanguage],
+				homePageTranslations.sections.cta.shortDescription[selectedLanguage],
+				homePageTranslations.sections.cta.longDescription[selectedLanguage]
+			)}
+		</div>
 	</div>
 </div>
