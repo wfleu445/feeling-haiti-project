@@ -70,12 +70,12 @@
 	</div>
 	<!--Hero-->
 	<div class="flex w-full justify-center p-3">
-		<div class="grid grid-flow-row-dense gap-2 lg:my-10 lg:grid-cols-2 lg:px-10">
-			<div class="flex items-end lg:col-start-1 lg:col-end-1 lg:row-start-1 lg:row-end-1 lg:px-10">
+		<div class="grid grid-flow-row-dense gap-2 md:grid-cols-2 md:px-10 lg:my-10">
+			<div class="flex items-end md:col-start-1 md:col-end-1 md:row-start-1 md:row-end-1 md:px-10">
 				<span class="pb-2 font-sans text-5xl font-semibold text-gray-700">Filing Ayiti</span>
 			</div>
 			<div
-				class="flex items-center lg:col-start-2 lg:col-end-2 lg:row-start-1 lg:row-end-4 lg:px-10"
+				class="flex items-center md:col-start-2 md:col-end-2 md:row-start-1 md:row-end-4 md:px-10"
 			>
 				<enhanced:img
 					src="/static/hero.jpg"
@@ -84,14 +84,14 @@
 				/>
 			</div>
 			<div
-				class="flex items-center lg:col-start-1 lg:col-end-1 lg:row-start-2 lg:row-end-2 lg:px-10"
+				class="flex items-center md:col-start-1 md:col-end-1 md:row-start-2 md:row-end-2 md:px-10"
 			>
 				<p class="max-w-96 pt-3">
 					{@html homePageTranslations.hero[selectedLanguage]}
 				</p>
 			</div>
 			<div
-				class="flex items-start lg:col-start-1 lg:col-end-1 lg:row-start-3 lg:row-end-3 lg:px-10"
+				class="flex items-start md:col-start-1 md:col-end-1 md:row-start-3 md:row-end-3 md:px-10"
 			>
 				<a
 					href="https://github.com/wfleu445/feeling-haiti-project/issues"
