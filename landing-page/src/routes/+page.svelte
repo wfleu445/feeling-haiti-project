@@ -96,7 +96,7 @@
 			<div
 				class="flex items-center md:col-start-1 md:col-end-1 md:row-start-2 md:row-end-2 md:px-10"
 			>
-				<p class="max-w-96 pt-3">
+				<p class="max-w-96 pt-3 tracking-wide">
 					{@html homePageTranslations.hero[selectedLanguage]}
 				</p>
 			</div>
@@ -110,7 +110,7 @@
 	<!--Proposal-->
 	<div class="flex w-full justify-center px-3 pb-10 pt-3">
 		<div
-			class="w-restricted flex justify-center rounded-lg bg-blue-400 p-5 [&_.header]:pb-3 [&_.header]:pt-1 [&_.header]:text-3xl [&_.header]:font-semibold [&_.long-description]:pt-4 [&_button]:mt-4 [&_button]:w-fit [&_button]:rounded-md [&_button]:bg-slate-300 [&_button]:px-4 [&_button]:py-2"
+			class="w-restricted flex justify-center rounded-lg bg-blue-500 p-5 tracking-wide text-blue-50 [&_.header]:pb-3 [&_.header]:pt-1 [&_.header]:text-3xl [&_.header]:font-semibold [&_.long-description]:flex [&_.long-description]:gap-4 [&_.long-description]:pt-4 [&_.long-description]:leading-normal [&_button]:mt-4 [&_button]:w-fit [&_button]:rounded-md [&_button]:bg-blue-700 [&_button]:px-4 [&_button]:py-2"
 		>
 			{@render expandingSection(
 				'intro',
@@ -121,9 +121,9 @@
 		</div>
 	</div>
 	<!--Features Lookout-->
-	<div class="flex w-full justify-center bg-red-400 py-10">
+	<div class="flex w-full justify-center bg-red-500 py-10 tracking-wide text-red-50">
 		<div
-			class="w-restricted p-5 [&_.header]:pb-3 [&_.header]:pt-1 [&_.header]:text-3xl [&_.header]:font-semibold [&_.long-description]:pt-4 [&_button]:mt-4 [&_button]:w-fit [&_button]:rounded-md [&_button]:bg-slate-300 [&_button]:px-4 [&_button]:py-2"
+			class="w-restricted p-5 [&_.header]:pb-3 [&_.header]:pt-1 [&_.header]:text-3xl [&_.header]:font-semibold [&_.long-description]:pt-4 [&_button]:mt-4 [&_button]:w-fit [&_button]:rounded-md [&_button]:bg-red-700 [&_button]:px-4 [&_button]:py-2"
 		>
 			{@render expandingSection(
 				'features',
