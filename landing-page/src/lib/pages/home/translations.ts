@@ -3,8 +3,8 @@ import type { Translation } from "$lib/utils/translationType";
 export const translations = {
   hero: {
     //todo write on the svelte discord about snippet closures.
-    "en-US": "A platform fostering mutual knowledge exchange and resource-sharing between Haitians in Haiti and the diaspora through educational content, live classes, and a marketplace, encouraging everyone to actively contribute.",
-    "ht-HT": "Yon platfòm ki ankouraje echanj mityèl konesans ak resous ant Ayisyen nan Ayiti ak nan dyaspora a atravè kontni edikatif, klas an dirèk, ak yon mache, ankouraje tout moun pou yo kontribye aktivman."
+    "en-US": `A place for Haitians <span>🇭🇹</span> <span class="underline underline-offset-2 decoration-green-400 decoration-2 decoration-wavy">anywhere</span> to learn with classes, share ideas <span>💡</span>, shop <span>👜</span>, and help each other <span>💪</span>.`,
+    "ht-HT": `Yon kote pou Ayisyen <span>🇭🇹</span> <span class="underline underline-offset-2 decoration-green-400 decoration-2 decoration-wavy">toupatou</span> swiv kou, pataje ide <span>💡</span>, fè shòpin <span>👜</span>, ak ede youn lòt <span>💪</span>.`
   } satisfies Translation,
   readMore: {
     "en-US": 'Read More',

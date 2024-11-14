@@ -70,28 +70,41 @@
 	</div>
 	<!--Hero-->
 	<div class="flex w-full justify-center p-3">
-		<div class="w-restricted grid grid-flow-row-dense gap-2">
-			<span class="pb-2 font-sans text-5xl font-semibold text-gray-700">Filing Ayiti</span>
-			<enhanced:img
-				src="/static/hero.jpg"
-				alt="a group of people smiling"
-				class="rounded-lg shadow-md"
-			/>
-			<p class="pt-3">
-				{homePageTranslations.hero[selectedLanguage]}
-			</p>
-
-			<a
-				href="https://github.com/wfleu445/feeling-haiti-project/issues"
-				class="my-4 flex w-fit cursor-pointer flex-row items-center justify-center gap-4 rounded-lg bg-slate-800 px-4 py-2 font-sans font-semibold text-white"
+		<div class="grid grid-flow-row-dense gap-2 lg:my-10 lg:grid-cols-2 lg:px-10">
+			<div class="flex items-end lg:col-start-1 lg:col-end-1 lg:row-start-1 lg:row-end-1 lg:px-10">
+				<span class="pb-2 font-sans text-5xl font-semibold text-gray-700">Filing Ayiti</span>
+			</div>
+			<div
+				class="flex items-center lg:col-start-2 lg:col-end-2 lg:row-start-1 lg:row-end-4 lg:px-10"
 			>
-				{homePageTranslations.joinUs[selectedLanguage]}
-				<i class="fa-brands fa-github text-2xl"></i>
-			</a>
+				<enhanced:img
+					src="/static/hero.jpg"
+					alt="a group of people smiling"
+					class="rounded-lg shadow-lg shadow-blue-300"
+				/>
+			</div>
+			<div
+				class="flex items-center lg:col-start-1 lg:col-end-1 lg:row-start-2 lg:row-end-2 lg:px-10"
+			>
+				<p class="max-w-96 pt-3">
+					{@html homePageTranslations.hero[selectedLanguage]}
+				</p>
+			</div>
+			<div
+				class="flex items-start lg:col-start-1 lg:col-end-1 lg:row-start-3 lg:row-end-3 lg:px-10"
+			>
+				<a
+					href="https://github.com/wfleu445/feeling-haiti-project/issues"
+					class="my-4 flex h-fit w-fit cursor-pointer flex-row items-center justify-center gap-4 rounded-lg bg-slate-800 px-4 py-2 font-sans font-semibold text-white"
+				>
+					{homePageTranslations.joinUs[selectedLanguage]}
+					<i class="fa-brands fa-github text-2xl"></i>
+				</a>
+			</div>
 		</div>
 	</div>
 	<!--Proposal-->
-	<div class="flex w-full justify-center px-3 py-10">
+	<div class="flex w-full justify-center px-3 pb-10 pt-3">
 		<div
 			class="w-restricted flex justify-center rounded-lg bg-blue-400 p-5 [&_.header]:pb-3 [&_.header]:pt-1 [&_.header]:text-3xl [&_.header]:font-semibold [&_.long-description]:pt-4 [&_button]:mt-4 [&_button]:w-fit [&_button]:rounded-md [&_button]:bg-slate-300 [&_button]:px-4 [&_button]:py-2"
 		>
