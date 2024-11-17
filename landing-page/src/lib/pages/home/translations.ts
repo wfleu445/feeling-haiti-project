@@ -1,31 +1,33 @@
-import type { Translation } from "$lib/utils/translationType";
+import { defineTranslation, generateGet } from '$lib/utils/translationType';
 
-export const translations = {
-  hero: {
-    //todo write on the svelte discord about snippet closures.
-    "en-US": `A place for Haitians <span>🇭🇹</span> <span class="underline underline-offset-2 decoration-green-400 decoration-2 decoration-wavy">anywhere</span> to learn with classes, share ideas <span>💡</span>, shop <span>👜</span>, and help each other <span>💪</span>.`,
-    "ht-HT": `Yon kote pou Ayisyen <span>🇭🇹</span> <span class="underline underline-offset-2 decoration-green-400 decoration-2 decoration-wavy">toupatou</span> swiv kou, pataje ide <span>💡</span>, fè shòpin <span>👜</span>, ak ede youn lòt <span>💪</span>.`
-  } satisfies Translation,
-  readMore: {
-    "en-US": 'Read More',
-    "ht-HT": "Li Plis"
-  } satisfies Translation,
-  collapse: {
-    "en-US": "Collapse",
-    "ht-HT": "Fèmen"
-  } satisfies Translation,
-  sections: {
-    intro: {
-      title: {
-        "en-US": 'The Vision',
-        "ht-HT": "Vizyon Nou"
-      } satisfies Translation,
-      shortDescription: {
-        "en-US": "Starting a new project is fun and challenging. It takes planning and hard work. Sometimes, problems come up, but staying focused helps you succeed. Reaching the goal feels great, but learning along the way is special too.",
-        'ht-HT': "Kòmanse yon nouvo pwojè se amizan e difisil. Sa mande planifikasyon ak travay di. Pafwa, gen pwoblèm ki parèt, men rete konsantre ede ou reyisi. Rive nan objektif la bay anpil satisfaksyon, men aprann pandan w ap avanse enpòtan tou."
-      } satisfies Translation,
-      longDescription: {
-        "en-US": `
+export const translations = defineTranslation({
+	hero: {
+		//todo write on the svelte discord about snippet closures.
+		'en-US': `A place for Haitians <span>🇭🇹</span> <span class="underline underline-offset-2 decoration-green-400 decoration-2 decoration-wavy">anywhere</span> to learn with classes, share ideas <span>💡</span>, shop <span>👜</span>, and help each other <span>💪</span>.`,
+		'ht-HT': `Yon kote pou Ayisyen <span>🇭🇹</span> <span class="underline underline-offset-2 decoration-green-400 decoration-2 decoration-wavy">toupatou</span> swiv kou, pataje ide <span>💡</span>, fè shòpin <span>👜</span>, ak ede youn lòt <span>💪</span>.`
+	},
+	readMore: {
+		'en-US': 'Read More',
+		'ht-HT': 'Li Plis'
+	},
+	collapse: {
+		'en-US': 'Collapse',
+		'ht-HT': 'Fèmen'
+	},
+	sections: {
+		intro: {
+			title: {
+				'en-US': 'The Vision',
+				'ht-HT': 'Vizyon Nou'
+			},
+			shortDescription: {
+				'en-US':
+					'Starting a new project is fun and challenging. It takes planning and hard work. Sometimes, problems come up, but staying focused helps you succeed. Reaching the goal feels great, but learning along the way is special too.',
+				'ht-HT':
+					'Kòmanse yon nouvo pwojè se amizan e difisil. Sa mande planifikasyon ak travay di. Pafwa, gen pwoblèm ki parèt, men rete konsantre ede ou reyisi. Rive nan objektif la bay anpil satisfaksyon, men aprann pandan w ap avanse enpòtan tou.'
+			},
+			longDescription: {
+				'en-US': `
         <p>This project aims to create a space where Haitian creators can share educational content in various formats (text, video, infographics), fostering a <span class="font-semibold">mutual exchange of knowledge and resources</span> between Haitians living in Haiti and those in the diaspora. 
         </p>
         <p>By actively encouraging users to contribute their unique insights and skills, the platform promotes a collaborative learning environment that benefits all participants.This system is designed to grow with its users, where everyone has something to offer and can add to the conversation.
@@ -38,7 +40,7 @@ export const translations = {
         <p>
         Additionally, live classes and accessibility features will be incorporated, ensuring that the platform is inclusive and easy to use for everyone and the content more engaging.
         </p>`,
-        'ht-HT': `
+				'ht-HT': `
         <p>
         Pwojè sa a vize kreye yon espas kote kreyatè Ayisyen ka pataje kontni edikatif nan plizyè fòm (tèks, videyo, enfografik), ankouraje yon <span class="font-semibold">echanj mityèl konesans ak resous ant Ayisyen k ap viv an Ayiti ak moun ki nan dyaspora a</span>.
         </p> 
@@ -54,20 +56,21 @@ export const translations = {
         <p>
         Anplis de sa, klas an dirèk ak karakteristik aksesibilite ap ajoute pou asire ke platfòm nan inklizif epi fasil pou tout moun itilize, e pou fè kontni an plis angajan.
         </p>`
-      } satisfies Translation
-    },
-    features: {
-      title: {
-        "en-US": "Features",
-        "ht-HT": "Sa'l Ye"
-      } satisfies Translation,
-      shortDescription: {
-        "en-US": "Starting a new project is fun and challenging. It takes planning and hard work. Sometimes, problems come up, but staying focused helps you succeed. Reaching the goal feels great, but learning along the way is special too.",
-        "ht-HT": "Kòmanse yon nouvo pwojè se amizan e difisil. Sa mande planifikasyon ak travay di. Pafwa, gen pwoblèm ki parèt, men rete konsantre ede ou reyisi. Rive nan objektif la bay anpil satisfaksyon, men aprann pandan w ap avanse enpòtan tou."
-      } satisfies Translation,
-      longDescription: {
-        "en-US":
-          `
+			}
+		},
+		features: {
+			title: {
+				'en-US': 'Features',
+				'ht-HT': "Sa'l Ye"
+			},
+			shortDescription: {
+				'en-US':
+					'Starting a new project is fun and challenging. It takes planning and hard work. Sometimes, problems come up, but staying focused helps you succeed. Reaching the goal feels great, but learning along the way is special too.',
+				'ht-HT':
+					'Kòmanse yon nouvo pwojè se amizan e difisil. Sa mande planifikasyon ak travay di. Pafwa, gen pwoblèm ki parèt, men rete konsantre ede ou reyisi. Rive nan objektif la bay anpil satisfaksyon, men aprann pandan w ap avanse enpòtan tou.'
+			},
+			longDescription: {
+				'en-US': `
           <div>
             <h3>User Profiles and Selling Permissions</h3>
             <p>All users will have a single account type, but to sell items or services in the gift shop, users will need to apply through their profile.</p>
@@ -89,7 +92,7 @@ export const translations = {
             <p>The platform will offer translation services or at least subtitles for all video content to ensure accessibility.</p>
           </div>
         `,
-        "ht-HT": `
+				'ht-HT': `
           <div>
             <h3>Profil e Aksè pou Vann</h3>
             <p>Tout itilizatè yo ap gen yon sèl kalite kont, men pou vann pwodwi oswa sèvis nan boutik kado a, itilizatè yo ap bezwen fè yon aplikasyon nan pwofil yo.</p>
@@ -111,19 +114,21 @@ export const translations = {
             <p>Platfòm nan ap ofri sèvis tradiksyon oswa omwen soun-tit pou tout kontni videyo pou asire aksesibilite.</p>
           </div>
           `
-      } satisfies Translation
-    },
-    cta: {
-      title: {
-        "en-US": "Join Us",
-        "ht-HT": "Kolabore avèk Nou"
-      } satisfies Translation,
-      shortDescription: {
-        "en-US": "Starting a new project is fun and challenging. It takes planning and hard work. Sometimes, problems come up, but staying focused helps you succeed. Reaching the goal feels great, but learning along the way is special too.",
-        "ht-HT": "Kòmanse yon nouvo pwojè se amizan e difisil. Sa mande planifikasyon ak travay di. Pafwa, gen pwoblèm ki parèt, men rete konsantre ede ou reyisi. Rive nan objektif la bay anpil satisfaksyon, men aprann pandan w ap avanse enpòtan tou."
-      } satisfies Translation,
-      longDescription: {
-        "en-US": `
+			}
+		},
+		cta: {
+			title: {
+				'en-US': 'Join Us',
+				'ht-HT': 'Kolabore avèk Nou'
+			},
+			shortDescription: {
+				'en-US':
+					'Starting a new project is fun and challenging. It takes planning and hard work. Sometimes, problems come up, but staying focused helps you succeed. Reaching the goal feels great, but learning along the way is special too.',
+				'ht-HT':
+					'Kòmanse yon nouvo pwojè se amizan e difisil. Sa mande planifikasyon ak travay di. Pafwa, gen pwoblèm ki parèt, men rete konsantre ede ou reyisi. Rive nan objektif la bay anpil satisfaksyon, men aprann pandan w ap avanse enpòtan tou.'
+			},
+			longDescription: {
+				'en-US': `
          <p>
         We invite coders from around the world, especially those with ties to Haiti, to help bring this project to life. Your contributions—whether it’s in development, UI/UX design, or simply sharing your ideas—are crucial for building a platform that empowers Haitians both in Haiti and the diaspora.
         </p>
@@ -140,7 +145,7 @@ export const translations = {
         <p>
         Thank you for your support in helping create an educational and resourceful community for Haitians everywhere!
         </p>`,
-        "ht-HT": `
+				'ht-HT': `
              <p>
         Nou envite pwogramè toupatou nan mond lan, espesyalman moun ki gen lyen ak Ayiti, pou ede reyalize pwojè sa a. Kout men ou—kit nan devlopman, konsepsyon UI/UX, oswa pataje lide—trè enpòtan pou bati yon platfòm ki bay pouvwa Ayisyen nan Ayiti ak nan dyaspora a.
         </p>
@@ -158,11 +163,13 @@ export const translations = {
         Mèsi paskè ou ede nou kreye yon kominote edikatif e itil pou tout Ayisyen!
         </p>
         `
-      } satisfies Translation
-    },
-  },
-  joinUs: {
-    "en-US": "Join Us",
-    "ht-HT": "Kolabore avèk Nou"
-  } satisfies Translation
-} as const;
+			}
+		}
+	},
+	joinUs: {
+		'en-US': 'Join Us',
+		'ht-HT': 'Kolabore avèk Nou'
+	}
+});
+
+export const getTranslation = generateGet(translations);
