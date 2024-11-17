@@ -5,7 +5,7 @@
 </script>
 
 <Firebase>
-	<div class="flex h-lvh flex-col">
+	<div class="flex h-lvh flex-col font-serif text-[16pt] leading-relaxed text-slate-800">
 		{@render children()}
 	</div>
 </Firebase>

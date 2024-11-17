@@ -67,9 +67,7 @@
 	</a>
 {/snippet}
 
-<div
-	class="flex grow flex-col gap-3 overflow-auto font-serif text-[16pt] leading-relaxed text-slate-800 [&_.w-restricted]:max-w-[45em]"
->
+<div class="flex grow flex-col gap-3 overflow-auto [&_.w-restricted]:max-w-[45em]">
 	<div class="flex p-2">
 		<Switch
 			options={languageOptions}
