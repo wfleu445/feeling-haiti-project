@@ -1,17 +1,11 @@
 <script lang="ts">
-	import Switch from '$lib/components/Switch/Switch.svelte';
-	import { type LanguageCode } from '$lib/utils/translationType';
+	import { getLanguageContext } from '$lib/components/LanguageContext/LanguageContext.svelte';
 	import { translations as homePageTranslations } from '$lib/pages/home/translations';
 
 	type PageSection = keyof typeof homePageTranslations.sections;
 
-	// language-COUNTRYCODE
-	const languageOptions: { code: LanguageCode; displayName: string }[] = [
-		{ code: 'ht-HT', displayName: 'Kreyòl' },
-		{ code: 'en-US', displayName: 'English' }
-	];
+	const languageContext = getLanguageContext();
 	// todo make this a context variable
-	let selectedLanguage = $state<LanguageCode>('ht-HT');
 	let expandedSection: PageSection | undefined = $state();
 </script>
 
@@ -34,10 +28,10 @@
 			}}
 			class="flex items-center gap-2"
 			>{#if expandedSection !== id}
-				{homePageTranslations.readMore[selectedLanguage]}
+				{homePageTranslations.readMore[languageContext.code]}
 				<i class="fas fa-angles-right"></i>
 			{:else}
-				{homePageTranslations.collapse[selectedLanguage]}<i class="fas fa-angles-up"></i>
+				{homePageTranslations.collapse[languageContext.code]}<i class="fas fa-angles-up"></i>
 			{/if}</button
 		>
 		{#if expandedSection === id}
@@ -50,7 +44,8 @@
 					onclick={() => {
 						expandedSection = undefined;
 					}}
-					>{homePageTranslations.collapse[selectedLanguage]}<i class="fas fa-angles-up"></i></button
+					>{homePageTranslations.collapse[languageContext.code]}<i class="fas fa-angles-up"
+					></i></button
 				>
 			</div>
 		{/if}
@@ -62,20 +57,12 @@
 		href="https://github.com/wfleu445/feeling-haiti-project/issues"
 		class="my-4 flex h-fit w-fit cursor-pointer flex-row items-center justify-center gap-4 rounded-lg bg-slate-800 px-4 py-2 font-sans font-semibold text-white"
 	>
-		{homePageTranslations.joinUs[selectedLanguage]}
+		{homePageTranslations.joinUs[languageContext.code]}
 		<i class="fa-brands fa-github text-2xl"></i>
 	</a>
 {/snippet}
 
 <div class="flex grow flex-col gap-3 overflow-auto [&_.w-restricted]:max-w-[45em]">
-	<div class="flex p-2">
-		<Switch
-			options={languageOptions}
-			getOptionValue={(option) => option.code}
-			getOptionLabel={(option) => option.displayName}
-			bind:value={selectedLanguage}
-		/>
-	</div>
 	<!--Hero-->
 	<div class="flex w-full justify-center p-3">
 		<div
@@ -97,7 +84,7 @@
 				class="flex items-center md:col-start-1 md:col-end-1 md:row-start-2 md:row-end-2 md:px-10"
 			>
 				<p class="max-w-96 pt-3 tracking-wide">
-					{@html homePageTranslations.hero[selectedLanguage]}
+					{@html homePageTranslations.hero[languageContext.code]}
 				</p>
 			</div>
 			<div
@@ -114,9 +101,9 @@
 		>
 			{@render expandingSection(
 				'intro',
-				homePageTranslations.sections.intro.title[selectedLanguage],
-				homePageTranslations.sections.intro.shortDescription[selectedLanguage],
-				homePageTranslations.sections.intro.longDescription[selectedLanguage]
+				homePageTranslations.sections.intro.title[languageContext.code],
+				homePageTranslations.sections.intro.shortDescription[languageContext.code],
+				homePageTranslations.sections.intro.longDescription[languageContext.code]
 			)}
 		</div>
 	</div>
@@ -127,9 +114,9 @@
 		>
 			{@render expandingSection(
 				'features',
-				homePageTranslations.sections.features.title[selectedLanguage],
-				homePageTranslations.sections.features.shortDescription[selectedLanguage],
-				homePageTranslations.sections.features.longDescription[selectedLanguage]
+				homePageTranslations.sections.features.title[languageContext.code],
+				homePageTranslations.sections.features.shortDescription[languageContext.code],
+				homePageTranslations.sections.features.longDescription[languageContext.code]
 			)}
 		</div>
 	</div>
@@ -140,9 +127,9 @@
 		>
 			{@render expandingSection(
 				'cta',
-				homePageTranslations.sections.cta.title[selectedLanguage],
-				homePageTranslations.sections.cta.shortDescription[selectedLanguage],
-				homePageTranslations.sections.cta.longDescription[selectedLanguage]
+				homePageTranslations.sections.cta.title[languageContext.code],
+				homePageTranslations.sections.cta.shortDescription[languageContext.code],
+				homePageTranslations.sections.cta.longDescription[languageContext.code]
 			)}
 		</div>
 	</div>
