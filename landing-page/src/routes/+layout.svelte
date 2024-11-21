@@ -2,19 +2,13 @@
 	import '../app.css';
 	import Firebase from '$lib/firebase/Firebase.svelte';
 	import Switch from '$lib/components/Switch/Switch.svelte';
-	import type { LanguageCode } from '$lib/utils/translationType';
+	import { languageOptions, type LanguageCode } from '$lib/utils/translationType';
 	import {
 		selectedLanguage,
 		setLanguageContext
 	} from '$lib/components/LanguageContext/LanguageContext.svelte';
 
 	let { children } = $props();
-
-	// language-COUNTRYCODE
-	const languageOptions: { code: LanguageCode; displayName: string }[] = [
-		{ code: 'ht-HT', displayName: 'Kreyòl' },
-		{ code: 'en-US', displayName: 'English' }
-	];
 
 	setLanguageContext(selectedLanguage.code);
 </script>

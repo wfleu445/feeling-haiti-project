@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { getLanguageContext } from '$lib/components/LanguageContext/LanguageContext.svelte';
 	import { translations } from '$lib/pages/home/translations';
-	import RichText from './RichText.svelte';
+	import LandingPageStringEditor from './LandingPageStringEditor.svelte';
+	import RichText from './RichTextEditor.svelte';
 
 	let content = $state(translations);
 	let selectedLanguage = getLanguageContext();
@@ -10,26 +11,28 @@
 	});
 </script>
 
-<div class="flex">
+<div class="flex flex-col">
 	<!--Hero Editor-->
-	<RichText bind:content={content.hero[selectedLanguage.code]} />
+	<div>
+		<!-- <h1>{adminPage['hero']}</h1> -->
+		<LandingPageStringEditor stringId="hero" />
+	</div>
 	<!--Vision Editor-->
 	<div>
-		<h2></h2>
-		<RichText bind:content={content.sections.intro.title[selectedLanguage.code]} />
-		<RichText bind:content={content.sections.intro.shortDescription[selectedLanguage.code]} />
-		<RichText bind:content={content.sections.intro.longDescription[selectedLanguage.code]} />
+		<LandingPageStringEditor stringId="sections.intro.title" />
+		<LandingPageStringEditor stringId="sections.intro.shortDescription" />
+		<LandingPageStringEditor stringId="sections.intro.longDescription" />
 	</div>
 	<!--Features Section-->
 	<div>
-		<RichText bind:content={content.sections.features.title[selectedLanguage.code]} />
-		<RichText bind:content={content.sections.features.shortDescription[selectedLanguage.code]} />
-		<RichText bind:content={content.sections.features.longDescription[selectedLanguage.code]} />
+		<LandingPageStringEditor stringId="sections.features.title" />
+		<LandingPageStringEditor stringId="sections.features.shortDescription" />
+		<LandingPageStringEditor stringId="sections.features.longDescription" />
 	</div>
 	<!--CTA-->
 	<div>
-		<RichText bind:content={content.sections.cta.title[selectedLanguage.code]} />
-		<RichText bind:content={content.sections.cta.shortDescription[selectedLanguage.code]} />
-		<RichText bind:content={content.sections.cta.longDescription[selectedLanguage.code]} />
+		<LandingPageStringEditor stringId="sections.cta.title" />
+		<LandingPageStringEditor stringId="sections.cta.shortDescription" />
+		<LandingPageStringEditor stringId="sections.cta.longDescription" />
 	</div>
 </div>

@@ -1,4 +1,9 @@
 export type LanguageCode = 'en-US' | 'ht-HT';
+// language-COUNTRYCODE
+export const languageOptions: { code: LanguageCode; displayName: string }[] = [
+	{ code: 'ht-HT', displayName: 'Kreyòl' },
+	{ code: 'en-US', displayName: 'English' }
+];
 
 export type TranslationObject = {
 	[key in LanguageCode]: string;
