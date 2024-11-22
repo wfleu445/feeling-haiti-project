@@ -26,7 +26,7 @@
 		<button
 			class={twMerge(
 				clsx(
-					'flex rounded px-3 py-1',
+					'flex rounded px-3 py-1 outline-none focus:ring',
 					getOptionValue(option) === value ? 'bg-blue-600 text-white' : 'font-normal',
 					buttonClasses
 				)

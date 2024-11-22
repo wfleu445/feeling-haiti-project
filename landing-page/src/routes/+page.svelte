@@ -62,7 +62,7 @@
 	</a>
 {/snippet}
 
-<div class="flex grow flex-col gap-3 overflow-auto [&_.w-restricted]:max-w-[45em]">
+<div class="flex grow flex-col gap-3 [&_.w-restricted]:max-w-[45em]">
 	<!--Hero-->
 	<div class="flex w-full justify-center p-3">
 		<div

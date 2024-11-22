@@ -14,8 +14,8 @@
 </script>
 
 <Firebase>
-	<div class="flex h-lvh flex-col font-serif text-[16pt] leading-relaxed text-slate-800">
-		<div class="flex p-2">
+	<div class="min-lvh flex flex-col font-serif text-[16pt] leading-relaxed text-slate-800">
+		<div class="sticky top-0 flex w-full bg-white bg-opacity-50 p-2 backdrop-blur">
 			<Switch
 				options={languageOptions}
 				getOptionValue={(option) => option.code}

@@ -28,6 +28,7 @@
 		"@tailwindcss/forms": "^0.5.9",
 		"@tailwindcss/typography": "^0.5.15",
 		"@types/eslint": "^9.6.0",
+		"@types/lodash-es": "^4.17.12",
 		"autoprefixer": "^10.4.20",
 		"eslint": "^9.7.0",
 		"eslint-config-prettier": "^9.1.0",
@@ -48,11 +49,13 @@
 		"@firebase/analytics": "^0.10.9",
 		"@firebase/app": "^0.10.15",
 		"@firebase/firestore": "^4.7.4",
+		"@google-cloud/firestore": "^7.10.0",
 		"@sveltejs/kit": "^2.0.0",
 		"clsx": "^2.1.1",
 		"express": "^4.21.1",
 		"firebase-admin": "^12.1.0",
 		"firebase-functions": "^6.1.0",
+		"lodash-es": "^4.17.21",
 		"tailwind-merge": "^2.5.4"
 	}
 }
