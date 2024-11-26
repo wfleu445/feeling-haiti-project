@@ -1,6 +1,10 @@
 import { z } from 'zod';
+export const translationObjectSchema = z.object({
+	'en-US': z.string(),
+	'ht-HT': z.string()
+});
 
-export const languageCodeSchema = z.enum(['en-US', 'ht-HT']);
+export const languageCodeSchema = translationObjectSchema.keyof();
 
 export type LanguageCode = z.infer<typeof languageCodeSchema>;
 
@@ -10,9 +14,7 @@ export const languageOptions: { code: LanguageCode; displayName: string }[] = [
 	{ code: 'en-US', displayName: 'English' }
 ];
 
-export type TranslationObject = {
-	[key in LanguageCode]: string;
-};
+export type TranslationObject = z.infer<typeof translationObjectSchema>;
 
 // Translation type with key hints and recursive structure
 export type Translation = {

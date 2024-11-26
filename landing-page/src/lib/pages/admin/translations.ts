@@ -22,6 +22,22 @@ export const translation = defineTranslation({
 	enterPasscode: {
 		'en-US': 'Enter passcode here to save',
 		'ht-HT': 'Mete kòd la isit pou ka save'
+	},
+	saveNoCodeMessage: {
+		'en-US': 'Please enter the passcode.',
+		'ht-HT': 'Silvouplè mete kòd la nan espas la.'
+	},
+	pendingSaveMesage: {
+		'en-US': 'Saving...',
+		'ht-HT': "N'ap sovgade..."
+	},
+	successfulSave: {
+		'en-US': 'Successfully ssaved!',
+		'ht-HT': 'Nou arrive sovgade dokiman!'
+	},
+	unsuccessfulSave: {
+		'en-US': 'We could not save this time.',
+		'ht-HT': "Nou pat ka sovgade'l fwa sa."
 	}
 });
 

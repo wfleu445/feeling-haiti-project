@@ -1,4 +1,34 @@
 import { defineTranslation, generateGet } from '$lib/utils/translation/translationType';
+import { firestore } from '$lib/firebase/Firebase.svelte';
+import { collection, onSnapshot, query, where, limit, orderBy } from '@firebase/firestore';
+import {
+	type LandingPageSectionsRevision,
+	landingPageSectionsRevision,
+	landingPageSectionsRevisionSchema
+} from '$lib/firebase/collections';
+import { generateFirebaseConverter } from '$lib/firebase/generateFirebaseConverter';
+
+// get the current translation from the firebase collection.
+
+const landingPageSectionRevisionQuery = firestore
+	? query(
+			collection(firestore, landingPageSectionsRevision)?.withConverter(
+				generateFirebaseConverter(landingPageSectionsRevisionSchema)
+			),
+			where('approved', '==', true),
+			where('dateApproved', '!=', null),
+			orderBy('dateApproved', 'desc'),
+			limit(1)
+		)
+	: undefined;
+
+let landingPageRecentRevision = $state<LandingPageSectionsRevision | undefined>();
+
+const unsubscribe = landingPageSectionRevisionQuery
+	? onSnapshot(landingPageSectionRevisionQuery, (snapshot) => {
+			console.log('snapshot', snapshot);
+		})
+	: undefined;
 
 export const translations = defineTranslation({
 	hero: {

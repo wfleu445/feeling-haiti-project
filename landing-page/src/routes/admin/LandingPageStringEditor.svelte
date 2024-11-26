@@ -1,30 +1,25 @@
 <script lang="ts">
 	import Switch from '$lib/components/Switch/Switch.svelte';
-	import { getTranslation } from '$lib/pages/home/translations';
 	import {
 		languageOptions,
 		type TranslationObject,
 		type LanguageCode
 	} from '$lib/utils/translation/translationType';
 	import RichText from './RichTextEditor.svelte';
-	import { camelCase, startCase } from 'lodash-es';
 
 	type LandingPageStringEditorProps = {
-		stringId: Parameters<typeof getTranslation>[0];
-		title?: string;
+		label: string;
+		content: TranslationObject;
 	};
-	let { stringId, title }: LandingPageStringEditorProps = $props();
+	let { label: title, content = $bindable<TranslationObject>() }: LandingPageStringEditorProps =
+		$props();
 	let language: LanguageCode = $state('ht-HT');
-	let content = $state<TranslationObject>({
-		'en-US': getTranslation(stringId, 'en-US'),
-		'ht-HT': getTranslation(stringId, 'ht-HT')
-	});
 </script>
 
 <div class="flex w-full flex-col gap-2 p-2 pb-5">
 	<div class="flex w-full flex-row items-end justify-between">
 		<h2 class="">
-			{title ?? startCase(camelCase(stringId.split('.')?.at(-1) ?? ''))}
+			{title}
 		</h2>
 		<Switch
 			options={languageOptions}

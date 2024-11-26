@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getLanguageContext } from '$lib/components/LanguageContext/LanguageContext.svelte';
-	import { translations as homePageTranslations } from '$lib/pages/home/translations';
+	import { translations as homePageTranslations } from '$lib/pages/home/translations.svelte';
 
 	type PageSection = keyof typeof homePageTranslations.sections;
 
