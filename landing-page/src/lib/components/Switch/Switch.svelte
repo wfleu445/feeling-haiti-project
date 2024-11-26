@@ -5,6 +5,7 @@
 		options: T[];
 		getOptionValue: (option: T) => Value;
 		// todo generify this string to Snippet in the future
+		onChange?: (newValue: Value) => void;
 		getOptionLabel: (option: T) => string;
 		value: Value | undefined;
 		class?: string;
@@ -15,6 +16,7 @@
 		options,
 		getOptionValue,
 		getOptionLabel,
+		onChange,
 		value = $bindable(),
 		class: customClasses,
 		buttonClasses
@@ -27,12 +29,16 @@
 			class={twMerge(
 				clsx(
 					'flex rounded px-3 py-1 outline-none focus:ring',
-					getOptionValue(option) === value ? 'bg-blue-600 text-white' : 'font-normal',
+					getOptionValue(option) === value ? 'bg-blue-200 text-blue-900' : 'font-normal',
 					buttonClasses
 				)
 			)}
 			onclick={() => {
-				value = getOptionValue(option);
+				if (onChange) {
+					onChange(getOptionValue(option));
+				} else {
+					value = getOptionValue(option);
+				}
 			}}
 		>
 			{getOptionLabel(option)}

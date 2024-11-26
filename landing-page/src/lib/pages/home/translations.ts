@@ -1,4 +1,4 @@
-import { defineTranslation, generateGet } from '$lib/utils/translationType';
+import { defineTranslation, generateGet } from '$lib/utils/translation/translationType';
 
 export const translations = defineTranslation({
 	hero: {

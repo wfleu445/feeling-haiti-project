@@ -1,4 +1,4 @@
-import type { TranslationObject } from './translationType';
+import type { TranslationObject } from './translation/translationType';
 
 export type AllKeys<T> = {
 	// todo: I need to exclude the locale from this type.

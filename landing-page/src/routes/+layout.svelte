@@ -2,15 +2,13 @@
 	import '../app.css';
 	import Firebase from '$lib/firebase/Firebase.svelte';
 	import Switch from '$lib/components/Switch/Switch.svelte';
-	import { languageOptions, type LanguageCode } from '$lib/utils/translationType';
+	import { languageOptions, type LanguageCode } from '$lib/utils/translation/translationType';
 	import {
-		selectedLanguage,
+		getLanguageContext,
 		setLanguageContext
 	} from '$lib/components/LanguageContext/LanguageContext.svelte';
 
 	let { children } = $props();
-
-	setLanguageContext(selectedLanguage.code);
 </script>
 
 <Firebase>
@@ -20,7 +18,10 @@
 				options={languageOptions}
 				getOptionValue={(option) => option.code}
 				getOptionLabel={(option) => option.displayName}
-				bind:value={selectedLanguage.code}
+				value={getLanguageContext()}
+				onChange={(value) => {
+					setLanguageContext(value);
+				}}
 			/>
 		</div>
 		{@render children()}

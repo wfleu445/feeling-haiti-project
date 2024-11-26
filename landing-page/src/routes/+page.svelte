@@ -4,7 +4,7 @@
 
 	type PageSection = keyof typeof homePageTranslations.sections;
 
-	const languageContext = getLanguageContext();
+	const languageContext = $derived(getLanguageContext());
 	// todo make this a context variable
 	let expandedSection: PageSection | undefined = $state();
 </script>
@@ -28,10 +28,10 @@
 			}}
 			class="flex items-center gap-2"
 			>{#if expandedSection !== id}
-				{homePageTranslations.readMore[languageContext.code]}
+				{homePageTranslations.readMore[languageContext]}
 				<i class="fas fa-angles-right"></i>
 			{:else}
-				{homePageTranslations.collapse[languageContext.code]}<i class="fas fa-angles-up"></i>
+				{homePageTranslations.collapse[languageContext]}<i class="fas fa-angles-up"></i>
 			{/if}</button
 		>
 		{#if expandedSection === id}
@@ -44,8 +44,7 @@
 					onclick={() => {
 						expandedSection = undefined;
 					}}
-					>{homePageTranslations.collapse[languageContext.code]}<i class="fas fa-angles-up"
-					></i></button
+					>{homePageTranslations.collapse[languageContext]}<i class="fas fa-angles-up"></i></button
 				>
 			</div>
 		{/if}
@@ -57,7 +56,7 @@
 		href="https://github.com/wfleu445/feeling-haiti-project/issues"
 		class="my-4 flex h-fit w-fit cursor-pointer flex-row items-center justify-center gap-4 rounded-lg bg-slate-800 px-4 py-2 font-sans font-semibold text-white"
 	>
-		{homePageTranslations.joinUs[languageContext.code]}
+		{homePageTranslations.joinUs[languageContext]}
 		<i class="fa-brands fa-github text-2xl"></i>
 	</a>
 {/snippet}
@@ -84,7 +83,7 @@
 				class="flex items-center md:col-start-1 md:col-end-1 md:row-start-2 md:row-end-2 md:px-10"
 			>
 				<p class="max-w-96 pt-3 tracking-wide">
-					{@html homePageTranslations.hero[languageContext.code]}
+					{@html homePageTranslations.hero[languageContext]}
 				</p>
 			</div>
 			<div
@@ -101,9 +100,9 @@
 		>
 			{@render expandingSection(
 				'intro',
-				homePageTranslations.sections.intro.title[languageContext.code],
-				homePageTranslations.sections.intro.shortDescription[languageContext.code],
-				homePageTranslations.sections.intro.longDescription[languageContext.code]
+				homePageTranslations.sections.intro.title[languageContext],
+				homePageTranslations.sections.intro.shortDescription[languageContext],
+				homePageTranslations.sections.intro.longDescription[languageContext]
 			)}
 		</div>
 	</div>
@@ -114,9 +113,9 @@
 		>
 			{@render expandingSection(
 				'features',
-				homePageTranslations.sections.features.title[languageContext.code],
-				homePageTranslations.sections.features.shortDescription[languageContext.code],
-				homePageTranslations.sections.features.longDescription[languageContext.code]
+				homePageTranslations.sections.features.title[languageContext],
+				homePageTranslations.sections.features.shortDescription[languageContext],
+				homePageTranslations.sections.features.longDescription[languageContext]
 			)}
 		</div>
 	</div>
@@ -127,9 +126,9 @@
 		>
 			{@render expandingSection(
 				'cta',
-				homePageTranslations.sections.cta.title[languageContext.code],
-				homePageTranslations.sections.cta.shortDescription[languageContext.code],
-				homePageTranslations.sections.cta.longDescription[languageContext.code]
+				homePageTranslations.sections.cta.title[languageContext],
+				homePageTranslations.sections.cta.shortDescription[languageContext],
+				homePageTranslations.sections.cta.longDescription[languageContext]
 			)}
 		</div>
 	</div>

@@ -5,7 +5,7 @@
 		languageOptions,
 		type TranslationObject,
 		type LanguageCode
-	} from '$lib/utils/translationType';
+	} from '$lib/utils/translation/translationType';
 	import RichText from './RichTextEditor.svelte';
 	import { camelCase, startCase } from 'lodash-es';
 
@@ -14,7 +14,7 @@
 		title?: string;
 	};
 	let { stringId, title }: LandingPageStringEditorProps = $props();
-	let language: LanguageCode = $state('en-US');
+	let language: LanguageCode = $state('ht-HT');
 	let content = $state<TranslationObject>({
 		'en-US': getTranslation(stringId, 'en-US'),
 		'ht-HT': getTranslation(stringId, 'ht-HT')
@@ -24,7 +24,7 @@
 <div class="flex w-full flex-col gap-2 p-2 pb-5">
 	<div class="flex w-full flex-row items-end justify-between">
 		<h2 class="">
-			{startCase(camelCase(title ?? stringId.split('.')?.at(-1) ?? ''))}
+			{title ?? startCase(camelCase(stringId.split('.')?.at(-1) ?? ''))}
 		</h2>
 		<Switch
 			options={languageOptions}

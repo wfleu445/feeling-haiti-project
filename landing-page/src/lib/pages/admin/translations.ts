@@ -1,6 +1,4 @@
-// import type { Translation } from "$lib/utils/translationType";
-
-import { defineTranslation, generateGet } from '$lib/utils/translationType';
+import { defineTranslation, generateGet } from '$lib/utils/translation/translationType';
 
 // Base type for supported language
 
@@ -20,6 +18,10 @@ export const translation = defineTranslation({
 	ctaSection: {
 		'en-US': 'CTA Section',
 		'ht-HT': 'Seksyon CTA la'
+	},
+	enterPasscode: {
+		'en-US': 'Enter passcode here to save',
+		'ht-HT': 'Mete kòd la isit pou ka save'
 	}
 });
 
