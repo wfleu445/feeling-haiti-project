@@ -1,18 +1,26 @@
-import { type LanguageCode } from '$lib/utils/translationType';
-import { getContext, setContext } from 'svelte';
+import { type LanguageCode, languageCodeSchema } from '$lib/utils/translation/translationType';
+import { browser } from '$app/environment';
+import { SvelteURLSearchParams } from 'svelte/reactivity';
+import { z } from 'zod';
+import { goto } from '$app/navigation';
 
-const languageContextKey = Symbol('language');
-type LanguageContext = {
-	code: LanguageCode;
-};
+const languageContextKey = 'language';
 
-export const selectedLanguage = $state<LanguageContext>({ code: 'ht-HT' });
+const urlSearchParams = new SvelteURLSearchParams(browser ? window.location.search : undefined);
 
 export function setLanguageContext(language: LanguageCode) {
-	selectedLanguage.code = language;
-	setContext<LanguageContext>(languageContextKey, selectedLanguage);
+	urlSearchParams.set(languageContextKey, language);
+
+	goto(`?${urlSearchParams.toString()}`);
 }
 
 export function getLanguageContext() {
-	return getContext<LanguageContext>(languageContextKey);
+	return z
+		.string()
+		.nullish()
+		.transform((arg) => {
+			return arg == null ? undefined : arg;
+		})
+		.pipe(languageCodeSchema.default('ht-HT'))
+		.parse(urlSearchParams.get(languageContextKey));
 }
