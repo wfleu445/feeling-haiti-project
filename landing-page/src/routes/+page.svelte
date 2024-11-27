@@ -12,7 +12,7 @@
 
 	type PageSection = keyof typeof homePageTranslations.sections;
 
-	const languageContext = $derived(getLanguageContext());
+	const selectedLanguage = $derived(getLanguageContext());
 	const landingPageRevision = $derived(getLandingPageRevision());
 	// todo make this a context variable
 	let expandedSection: PageSection | undefined = $state();
@@ -41,10 +41,10 @@
 			}}
 			class="flex items-center gap-2"
 			>{#if expandedSection !== id}
-				{homePageTranslations.readMore[languageContext]}
+				{homePageTranslations.readMore[selectedLanguage]}
 				<i class="fas fa-angles-right"></i>
 			{:else}
-				{homePageTranslations.collapse[languageContext]}<i class="fas fa-angles-up"></i>
+				{homePageTranslations.collapse[selectedLanguage]}<i class="fas fa-angles-up"></i>
 			{/if}</button
 		>
 		{#if expandedSection === id}
@@ -57,7 +57,7 @@
 					onclick={() => {
 						expandedSection = undefined;
 					}}
-					>{homePageTranslations.collapse[languageContext]}<i class="fas fa-angles-up"></i></button
+					>{homePageTranslations.collapse[selectedLanguage]}<i class="fas fa-angles-up"></i></button
 				>
 			</div>
 		{/if}
@@ -69,7 +69,7 @@
 		href="https://github.com/wfleu445/feeling-haiti-project/issues"
 		class="my-4 flex h-fit w-fit cursor-pointer flex-row items-center justify-center gap-4 rounded-lg bg-slate-800 px-4 py-2 font-sans font-semibold text-white"
 	>
-		{homePageTranslations.joinUs[languageContext]}
+		{homePageTranslations.joinUs[selectedLanguage]}
 		<i class="fa-brands fa-github text-2xl"></i>
 	</a>
 {/snippet}
@@ -96,8 +96,8 @@
 				class="flex items-center md:col-start-1 md:col-end-1 md:row-start-2 md:row-end-2 md:px-10"
 			>
 				<p class="max-w-96 pt-3 tracking-wide">
-					{@html landingPageRevision?.hero[languageContext] ??
-						getHomePageTranslations('hero', languageContext)}
+					{@html landingPageRevision?.hero[selectedLanguage] ??
+						getHomePageTranslations('hero', selectedLanguage)}
 				</p>
 			</div>
 			<div
@@ -114,12 +114,12 @@
 		>
 			{@render expandingSection(
 				'intro',
-				landingPageRevision?.intro.title[languageContext] ??
-					homePageTranslations.sections.intro.title[languageContext],
-				landingPageRevision?.intro.shortDescription[languageContext] ??
-					homePageTranslations.sections.intro.shortDescription[languageContext],
-				landingPageRevision?.intro.longDescription[languageContext] ??
-					homePageTranslations.sections.intro.longDescription[languageContext]
+				landingPageRevision?.intro.title[selectedLanguage] ??
+					homePageTranslations.sections.intro.title[selectedLanguage],
+				landingPageRevision?.intro.shortDescription[selectedLanguage] ??
+					homePageTranslations.sections.intro.shortDescription[selectedLanguage],
+				landingPageRevision?.intro.longDescription[selectedLanguage] ??
+					homePageTranslations.sections.intro.longDescription[selectedLanguage]
 			)}
 		</div>
 	</div>
@@ -130,12 +130,12 @@
 		>
 			{@render expandingSection(
 				'features',
-				landingPageRevision?.features.title[languageContext] ??
-					homePageTranslations.sections.features.title[languageContext],
-				landingPageRevision?.features.shortDescription[languageContext] ??
-					homePageTranslations.sections.features.shortDescription[languageContext],
-				landingPageRevision?.features.longDescription[languageContext] ??
-					homePageTranslations.sections.features.longDescription[languageContext]
+				landingPageRevision?.features.title[selectedLanguage] ??
+					homePageTranslations.sections.features.title[selectedLanguage],
+				landingPageRevision?.features.shortDescription[selectedLanguage] ??
+					homePageTranslations.sections.features.shortDescription[selectedLanguage],
+				landingPageRevision?.features.longDescription[selectedLanguage] ??
+					homePageTranslations.sections.features.longDescription[selectedLanguage]
 			)}
 		</div>
 	</div>
@@ -146,18 +146,36 @@
 		>
 			{@render expandingSection(
 				'cta',
-				landingPageRevision?.cta.title[languageContext] ??
-					homePageTranslations.sections.cta.title[languageContext],
-				landingPageRevision?.cta.shortDescription[languageContext] ??
-					homePageTranslations.sections.cta.shortDescription[languageContext],
-				landingPageRevision?.cta.longDescription[languageContext] ??
-					homePageTranslations.sections.cta.longDescription[languageContext]
+				landingPageRevision?.cta.title[selectedLanguage] ??
+					homePageTranslations.sections.cta.title[selectedLanguage],
+				landingPageRevision?.cta.shortDescription[selectedLanguage] ??
+					homePageTranslations.sections.cta.shortDescription[selectedLanguage],
+				landingPageRevision?.cta.longDescription[selectedLanguage] ??
+					homePageTranslations.sections.cta.longDescription[selectedLanguage]
 			)}
 		</div>
 	</div>
 	<div class="flex w-full justify-center">
 		<div class="w-restricted w-full px-5">
 			<div class="flex w-full">{@render joinButton()}</div>
+		</div>
+	</div>
+	<div class="gap flex min-h-96 w-full flex-col bg-gray-300 pt-10">
+		<div class="flex grow">
+			<div class="w-restricted flex w-full flex-col gap-3 px-5">
+				<h2 class="text-3xl font-bold tracking-wide text-gray-600">
+					{getHomePageTranslations('contactUs', selectedLanguage)}
+				</h2>
+				<div
+					class="item-center flex min-h-48 w-fit min-w-60 flex-col whitespace-pre-line rounded-lg border-l-[1pt] border-gray-400 bg-gray-200 p-2 py-4 leading-snug tracking-wider text-gray-800"
+				>
+					{@html getHomePageTranslations('contactInfo', selectedLanguage)}
+				</div>
+			</div>
+		</div>
+
+		<div class="flex w-full justify-center gap-1 self-end pb-3 pt-8 text-sm text-slate-800">
+			<span>&copy;</span>Filing Ayiti
 		</div>
 	</div>
 </div>
