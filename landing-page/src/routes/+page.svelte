@@ -160,14 +160,14 @@
 			<div class="flex w-full">{@render joinButton()}</div>
 		</div>
 	</div>
-	<div class="gap flex min-h-96 w-full flex-col bg-gray-300 pt-10">
+	<div class="gap flex min-h-96 w-full flex-col bg-yellow-900 pt-10">
 		<div class="flex grow">
 			<div class="w-restricted flex w-full flex-col gap-3 px-5">
-				<h2 class="text-3xl font-bold tracking-wide text-gray-600">
+				<h2 class="pb-3 text-3xl font-bold tracking-wide text-white">
 					{getHomePageTranslations('contactUs', selectedLanguage)}
 				</h2>
 				<div
-					class="item-center flex min-h-48 w-fit min-w-60 flex-col whitespace-pre-line rounded-lg border-l-[1pt] border-gray-400 bg-gray-200 px-3 py-5 leading-snug tracking-wider text-gray-800"
+					class="item-center flex min-h-48 w-fit min-w-60 flex-col whitespace-pre-line rounded-lg border-l-[6pt] border-blue-600 bg-white py-5 pl-3 pr-10 leading-snug tracking-wider text-black"
 				>
 					{@html landingPageRevision?.contactInfo[selectedLanguage] ??
 						getHomePageTranslations('contactInfo', selectedLanguage)}
@@ -175,7 +175,7 @@
 			</div>
 		</div>
 
-		<div class="flex w-full justify-center gap-1 self-end pb-3 pt-8 text-sm text-slate-800">
+		<div class="flex w-full justify-center gap-1 self-end pb-3 pt-8 text-sm text-white">
 			<span>&copy;</span>Filing Ayiti
 		</div>
 	</div>
