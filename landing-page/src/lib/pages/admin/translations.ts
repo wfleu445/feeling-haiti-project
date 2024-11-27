@@ -38,6 +38,14 @@ export const translation = defineTranslation({
 	unsuccessfulSave: {
 		'en-US': 'We could not save this time.',
 		'ht-HT': "Nou pat ka sovgade'l fwa sa."
+	},
+	revisionDetected: {
+		'en-US': 'Revision detected. Click here to apply revision (overwrites current changes)?',
+		'ht-HT': "Yon moun chanje paj la. Eske'w vle aplike chanjman yo?"
+	},
+	appliedRevision: {
+		'en-US': 'Applied the revision!',
+		'ht-HT': 'Chanjman yo aplike kounya!'
 	}
 });
 

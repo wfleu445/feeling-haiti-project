@@ -9,21 +9,29 @@
 	} from '$lib/components/LanguageContext/LanguageContext.svelte';
 
 	let { children } = $props();
+	let isLoading = $state(true);
+	if (typeof window !== 'undefined') {
+		$effect(() => {
+			isLoading = false;
+		});
+	}
 </script>
 
-<Firebase>
-	<div class="min-lvh flex flex-col font-serif text-[16pt] leading-relaxed text-slate-800">
-		<div class="sticky top-0 flex w-full bg-white bg-opacity-50 p-2 backdrop-blur">
-			<Switch
-				options={languageOptions}
-				getOptionValue={(option) => option.code}
-				getOptionLabel={(option) => option.displayName}
-				value={getLanguageContext()}
-				onChange={(value) => {
-					setLanguageContext(value);
-				}}
-			/>
+{#if !isLoading}
+	<Firebase>
+		<div class="min-lvh flex flex-col font-serif text-[16pt] leading-relaxed text-slate-800">
+			<div class="sticky top-0 flex w-full bg-white bg-opacity-50 p-2 backdrop-blur">
+				<Switch
+					options={languageOptions}
+					getOptionValue={(option) => option.code}
+					getOptionLabel={(option) => option.displayName}
+					value={getLanguageContext()}
+					onChange={(value) => {
+						setLanguageContext(value);
+					}}
+				/>
+			</div>
+			{@render children()}
 		</div>
-		{@render children()}
-	</div>
-</Firebase>
+	</Firebase>
+{/if}

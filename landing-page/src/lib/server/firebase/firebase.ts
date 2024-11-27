@@ -9,7 +9,7 @@ try {
 	app = getApp();
 } catch (error) {
 	app = initializeApp();
-	console.log('error initializing app', error);
+	console.error('error initializing app', error);
 }
 
 export { app };

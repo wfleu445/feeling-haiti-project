@@ -4,19 +4,22 @@
 		translations as homePageTranslations,
 		getTranslation as getHomePageTranslations
 	} from '$lib/pages/home/translations.svelte';
+	import {
+		unsubscribeFromLandingPageRevisionQuery,
+		getLandingPageRevision
+	} from '$lib/pages/home/pageRevisions.svelte';
+	import { onDestroy } from 'svelte';
 
 	type PageSection = keyof typeof homePageTranslations.sections;
 
 	const languageContext = $derived(getLanguageContext());
+	const landingPageRevision = $derived(getLandingPageRevision());
 	// todo make this a context variable
 	let expandedSection: PageSection | undefined = $state();
 
-	let heroHtml = $state<string | undefined>();
-	if (typeof window !== 'undefined') {
-		$effect(() => {
-			heroHtml = getHomePageTranslations('hero', languageContext);
-		});
-	}
+	onDestroy(() => {
+		unsubscribeFromLandingPageRevisionQuery?.();
+	});
 </script>
 
 {#snippet expandingSection(
@@ -27,7 +30,7 @@
 )}
 	<div class="flex flex-col">
 		<h2 class="header">{header}</h2>
-		<p class="short-description">{shortDescription}</p>
+		<div class="short-description">{@html shortDescription}</div>
 		<button
 			onclick={() => {
 				if (expandedSection !== undefined) {
@@ -93,9 +96,8 @@
 				class="flex items-center md:col-start-1 md:col-end-1 md:row-start-2 md:row-end-2 md:px-10"
 			>
 				<p class="max-w-96 pt-3 tracking-wide">
-					{#if heroHtml}
-						{@html heroHtml}
-					{/if}
+					{@html landingPageRevision?.hero[languageContext] ??
+						getHomePageTranslations('hero', languageContext)}
 				</p>
 			</div>
 			<div
@@ -112,9 +114,12 @@
 		>
 			{@render expandingSection(
 				'intro',
-				homePageTranslations.sections.intro.title[languageContext],
-				homePageTranslations.sections.intro.shortDescription[languageContext],
-				homePageTranslations.sections.intro.longDescription[languageContext]
+				landingPageRevision?.intro.title[languageContext] ??
+					homePageTranslations.sections.intro.title[languageContext],
+				landingPageRevision?.intro.shortDescription[languageContext] ??
+					homePageTranslations.sections.intro.shortDescription[languageContext],
+				landingPageRevision?.intro.longDescription[languageContext] ??
+					homePageTranslations.sections.intro.longDescription[languageContext]
 			)}
 		</div>
 	</div>
@@ -125,9 +130,12 @@
 		>
 			{@render expandingSection(
 				'features',
-				homePageTranslations.sections.features.title[languageContext],
-				homePageTranslations.sections.features.shortDescription[languageContext],
-				homePageTranslations.sections.features.longDescription[languageContext]
+				landingPageRevision?.features.title[languageContext] ??
+					homePageTranslations.sections.features.title[languageContext],
+				landingPageRevision?.features.shortDescription[languageContext] ??
+					homePageTranslations.sections.features.shortDescription[languageContext],
+				landingPageRevision?.features.longDescription[languageContext] ??
+					homePageTranslations.sections.features.longDescription[languageContext]
 			)}
 		</div>
 	</div>
@@ -138,9 +146,12 @@
 		>
 			{@render expandingSection(
 				'cta',
-				homePageTranslations.sections.cta.title[languageContext],
-				homePageTranslations.sections.cta.shortDescription[languageContext],
-				homePageTranslations.sections.cta.longDescription[languageContext]
+				landingPageRevision?.cta.title[languageContext] ??
+					homePageTranslations.sections.cta.title[languageContext],
+				landingPageRevision?.cta.shortDescription[languageContext] ??
+					homePageTranslations.sections.cta.shortDescription[languageContext],
+				landingPageRevision?.cta.longDescription[languageContext] ??
+					homePageTranslations.sections.cta.longDescription[languageContext]
 			)}
 		</div>
 	</div>

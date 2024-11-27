@@ -9,6 +9,7 @@
 	import { clsx } from 'clsx';
 	import LandingPageStringEditor from './LandingPageStringEditor.svelte';
 	import { type LandingPageSectionsRevision } from '$lib/firebase/collections';
+	import { getLandingPageRevision } from '$lib/pages/home/pageRevisions.svelte';
 
 	let saveCode = $state<string>('');
 
@@ -21,6 +22,23 @@
 		intro: landingPageTransations.sections.intro,
 		features: landingPageTransations.sections.features,
 		cta: landingPageTransations.sections.cta
+	});
+
+	let landingPageRevision = $derived(getLandingPageRevision());
+	let appliedRevision = $state<Date | undefined>();
+
+	$effect(() => {
+		if (appliedRevision || !landingPageRevision) return;
+
+		const { hero, intro, features, cta, createdTime } = landingPageRevision;
+		landingPageSections = {
+			hero,
+			intro,
+			features,
+			cta
+		};
+
+		appliedRevision = createdTime;
 	});
 
 	let savingStatus = $state<
@@ -97,7 +115,7 @@
 						'text-green-500': savingStatus?.type === 'success',
 						'text-red-500': savingStatus?.type === 'error'
 					},
-					'py-1'
+					'py-1 text-sm'
 				)}
 				>{savingStatus?.message}
 				{#if savingStatus.type === 'pending'}
@@ -105,6 +123,36 @@
 				{/if}
 			</span>
 		{/if}
+
+		<div class="flex flex-row gap-2 text-sm">
+			{#if landingPageRevision && appliedRevision !== landingPageRevision.createdTime}
+				{landingPageRevision?.createdTime.toLocaleString()}
+				<button
+					onclick={() => {
+						appliedRevision = landingPageRevision.createdTime;
+						const { hero, intro, features, cta } = landingPageRevision;
+						landingPageSections = {
+							hero,
+							intro,
+							features,
+							cta
+						};
+
+						savingStatus = {
+							type: 'success',
+							message: getAdminPageTranslations('appliedRevision', selectedLanguage)
+						};
+
+						setTimeout(() => {
+							savingStatus = undefined;
+						}, 5000);
+					}}
+					class="underline underline-offset-2"
+				>
+					{getAdminPageTranslations('revisionDetected', selectedLanguage)}
+				</button>
+			{/if}
+		</div>
 	</div>
 	<!--Hero Editor-->
 	<div>
