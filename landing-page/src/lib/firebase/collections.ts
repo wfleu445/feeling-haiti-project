@@ -28,7 +28,8 @@ export const landingPageSectionsRevisionSchema = z.object({
 		title: translationObjectSchema,
 		shortDescription: translationObjectSchema,
 		longDescription: translationObjectSchema
-	})
+	}),
+	contactInfo: translationObjectSchema
 });
 
 export type LandingPageSectionsRevision = z.infer<typeof landingPageSectionsRevisionSchema>;

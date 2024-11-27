@@ -167,9 +167,10 @@
 					{getHomePageTranslations('contactUs', selectedLanguage)}
 				</h2>
 				<div
-					class="item-center flex min-h-48 w-fit min-w-60 flex-col whitespace-pre-line rounded-lg border-l-[1pt] border-gray-400 bg-gray-200 p-2 py-4 leading-snug tracking-wider text-gray-800"
+					class="item-center flex min-h-48 w-fit min-w-60 flex-col whitespace-pre-line rounded-lg border-l-[1pt] border-gray-400 bg-gray-200 px-3 py-5 leading-snug tracking-wider text-gray-800"
 				>
-					{@html getHomePageTranslations('contactInfo', selectedLanguage)}
+					{@html landingPageRevision?.contactInfo[selectedLanguage] ??
+						getHomePageTranslations('contactInfo', selectedLanguage)}
 				</div>
 			</div>
 		</div>

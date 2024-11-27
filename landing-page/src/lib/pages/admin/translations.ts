@@ -19,6 +19,10 @@ export const translation = defineTranslation({
 		'en-US': 'CTA Section',
 		'ht-HT': 'Seksyon CTA la'
 	},
+	contactInfo: {
+		'en-US': 'Contact Info',
+		'ht-HT': 'Kontak'
+	},
 	enterPasscode: {
 		'en-US': 'Enter passcode here to save',
 		'ht-HT': 'Mete kòd la isit pou ka save'

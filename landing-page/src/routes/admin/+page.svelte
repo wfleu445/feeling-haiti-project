@@ -16,12 +16,13 @@
 	let selectedLanguage = $derived(getLanguageContext());
 
 	let landingPageSections = $state<
-		Pick<LandingPageSectionsRevision, 'hero' | 'intro' | 'features' | 'cta'>
+		Pick<LandingPageSectionsRevision, 'hero' | 'intro' | 'features' | 'cta' | 'contactInfo'>
 	>({
 		hero: landingPageTransations.hero,
 		intro: landingPageTransations.sections.intro,
 		features: landingPageTransations.sections.features,
-		cta: landingPageTransations.sections.cta
+		cta: landingPageTransations.sections.cta,
+		contactInfo: landingPageTransations.contactInfo
 	});
 
 	let landingPageRevision = $derived(getLandingPageRevision());
@@ -30,12 +31,13 @@
 	$effect(() => {
 		if (appliedRevision || !landingPageRevision) return;
 
-		const { hero, intro, features, cta, createdTime } = landingPageRevision;
+		const { hero, intro, features, cta, createdTime, contactInfo } = landingPageRevision;
 		landingPageSections = {
 			hero,
 			intro,
 			features,
-			cta
+			cta,
+			contactInfo
 		};
 
 		appliedRevision = createdTime;
@@ -130,12 +132,13 @@
 				<button
 					onclick={() => {
 						appliedRevision = landingPageRevision.createdTime;
-						const { hero, intro, features, cta } = landingPageRevision;
+						const { hero, intro, features, cta, contactInfo } = landingPageRevision;
 						landingPageSections = {
 							hero,
 							intro,
 							features,
-							cta
+							cta,
+							contactInfo
 						};
 
 						savingStatus = {
@@ -213,6 +216,13 @@
 				bind:content={landingPageSections.cta.longDescription}
 				label={getCommonTranslations('longDescription', selectedLanguage)}
 			/>
+		</div>
+	</div>
+	<!--Contact Info Section-->
+	<div class="w-full">
+		<h1>{getAdminPageTranslations('contactInfo', selectedLanguage)}</h1>
+		<div class="pageSection">
+			<LandingPageStringEditor bind:content={landingPageSections.contactInfo} />
 		</div>
 	</div>
 </div>

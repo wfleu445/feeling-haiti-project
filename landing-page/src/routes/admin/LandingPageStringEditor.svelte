@@ -8,18 +8,17 @@
 	import RichText from './RichTextEditor.svelte';
 
 	type LandingPageStringEditorProps = {
-		label: string;
+		label?: string;
 		content: TranslationObject;
 	};
-	let { label: title, content = $bindable<TranslationObject>() }: LandingPageStringEditorProps =
-		$props();
+	let { label, content = $bindable<TranslationObject>() }: LandingPageStringEditorProps = $props();
 	let language: LanguageCode = $state('ht-HT');
 </script>
 
 <div class="flex w-full flex-col gap-2 p-2 pb-5">
 	<div class="flex w-full flex-row items-end justify-between">
-		<h2 class="">
-			{title}
+		<h2>
+			{label}
 		</h2>
 		<Switch
 			options={languageOptions}
