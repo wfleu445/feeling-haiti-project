@@ -160,7 +160,7 @@
 			<div class="flex w-full">{@render joinButton()}</div>
 		</div>
 	</div>
-	<div class="gap flex min-h-96 w-full flex-col bg-yellow-900 pt-10">
+	<div class="gap flex min-h-96 w-full flex-col bg-yellow-950 pt-10">
 		<div class="flex grow">
 			<div class="w-restricted flex w-full flex-col gap-3 px-5">
 				<h2 class="pb-3 text-3xl font-bold tracking-wide text-white">
