@@ -1,12 +1,22 @@
 <script lang="ts">
 	import { getLanguageContext } from '$lib/components/LanguageContext/LanguageContext.svelte';
-	import { translations as homePageTranslations } from '$lib/pages/home/translations.svelte';
+	import {
+		translations as homePageTranslations,
+		getTranslation as getHomePageTranslations
+	} from '$lib/pages/home/translations.svelte';
 
 	type PageSection = keyof typeof homePageTranslations.sections;
 
 	const languageContext = $derived(getLanguageContext());
 	// todo make this a context variable
 	let expandedSection: PageSection | undefined = $state();
+
+	let heroHtml = $state<string | undefined>();
+	if (typeof window !== 'undefined') {
+		$effect(() => {
+			heroHtml = getHomePageTranslations('hero', languageContext);
+		});
+	}
 </script>
 
 {#snippet expandingSection(
@@ -83,7 +93,9 @@
 				class="flex items-center md:col-start-1 md:col-end-1 md:row-start-2 md:row-end-2 md:px-10"
 			>
 				<p class="max-w-96 pt-3 tracking-wide">
-					{@html homePageTranslations.hero[languageContext]}
+					{#if heroHtml}
+						{@html heroHtml}
+					{/if}
 				</p>
 			</div>
 			<div

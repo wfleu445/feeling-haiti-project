@@ -9,6 +9,7 @@ const languageContextKey = 'language';
 const urlSearchParams = new SvelteURLSearchParams(browser ? window.location.search : undefined);
 
 export function setLanguageContext(language: LanguageCode) {
+	console.log('urlSearchParams.toString()', urlSearchParams);
 	urlSearchParams.set(languageContextKey, language);
 
 	goto(`?${urlSearchParams.toString()}`);
