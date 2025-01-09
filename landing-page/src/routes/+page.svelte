@@ -160,18 +160,29 @@
 			<div class="flex w-full">{@render joinButton()}</div>
 		</div>
 	</div>
-	<div class="gap flex min-h-96 w-full flex-col bg-yellow-950 pt-10">
-		<div class="flex grow">
-			<div class="w-restricted flex w-full flex-col gap-3 px-5">
+	<div class="gap flex min-h-96 min-w-full grow flex-col bg-yellow-950 pt-10">
+		<div class="flex w-full grow flex-row flex-wrap justify-between gap-3">
+			<div class="w-restricted flex flex-col gap-3 px-5">
 				<h2 class="pb-3 text-3xl font-bold tracking-wide text-white">
 					{getHomePageTranslations('contactUs', selectedLanguage)}
 				</h2>
 				<div
-					class="item-center flex min-h-48 w-fit min-w-60 flex-col whitespace-pre-line rounded-lg border-l-[6pt] border-blue-600 bg-white py-5 pl-3 pr-10 leading-snug tracking-wider text-black"
+					class="flex min-h-20 w-fit min-w-60 flex-col items-center justify-center whitespace-pre-line rounded-lg border-l-[6pt] border-blue-600 bg-white py-5 pl-3 pr-10 leading-snug tracking-wider text-black"
 				>
 					{@html landingPageRevision?.contactInfo[selectedLanguage] ??
 						getHomePageTranslations('contactInfo', selectedLanguage)}
 				</div>
+			</div>
+			<div class="relative flex grow items-center justify-center rounded-md px-5">
+				<iframe
+					title="contact-form"
+					src={selectedLanguage === 'en-US'
+						? 'https://docs.google.com/forms/d/e/1FAIpQLScI7e8Uyp_Gw-Os_DHqQbWFD2WWKb8PgfM6V8XZGGPF3GcHpQ/viewform?usp=dialog'
+						: 'https://docs.google.com/forms/d/e/1FAIpQLSeyU16Rn3F5Qjm3-8U0hIeEBGDc8gKfrseVgkbdgk5o0U8Meg/viewform'}
+					allowfullscreen={true}
+					loading="lazy"
+					class="min-h-[20em] min-w-[15em] grow rounded-md lg:min-w-[30em]"
+				></iframe>
 			</div>
 		</div>
 
