@@ -1,0 +1,35 @@
+{
+	"emulators": {
+		"hosting": {
+			"port": 8080
+		},
+		"ui": {
+			"enabled": true
+		},
+		"singleProjectMode": true,
+		"functions": {
+			"port": 8000
+		}
+	},
+	"hosting": {
+		"public": "build/client",
+		"ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+		"rewrites": [
+			{
+				"source": "**",
+				"function": {
+					"functionId": "filingAyiti",
+					"region": "us-east1",
+					"pinTag": true
+				}
+			}
+		]
+	},
+	"functions": [
+		{
+			"source": ".",
+			"codebase": "default",
+			"ignore": ["node_modules", ".git", "firebase-debug.log", "firebase-debug.*.log", "*.local"]
+		}
+	]
+}
